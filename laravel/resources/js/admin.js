@@ -4,10 +4,15 @@
  * application frontend using useful Laravel and JavaScript libraries.
  */
 
-require('./bootstrap');
+//require('./bootstrap');
+// require('jquery');
 require('jquery.cookie');
 require('select2');
 import elFinderBrowser from './admin/elfinder.js';
+import jQuery from 'jquery';
+
+window.jQuery = jQuery;
+window.$ = jQuery;
 
 window.elFinderBrowser = elFinderBrowser;
 

@@ -26,7 +26,7 @@ $fa-font-path: "/assets/fonts/fontawesome-free" !default;
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/dist/css/bootstrap.css';
 @import '~select2/src/scss/core';
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -45,9 +45,14 @@ $green:      #28a745;
 @import "admin/fix";
 @import "admin/select2_bootstrap4";
 
+html {
+    height: 100%;
+}
+
 body {
     background: #f1f1f1;
     font-size: 14px;
+    height: 100%;
 }
 
 .sidebar {
@@ -233,6 +238,23 @@ body {
 .main_wrap {
     margin-left: 240px;
     transition: .3s;
+    height: 100%;
+
+    &.no-sidebar {
+        margin-left: 0;
+    }
+
+    .logo {
+        float: left;
+        font-size: 24px;
+        line-height: 40px;
+        color: #ffffff;
+        padding: 0 15px;
+
+        a {
+            color: #ffffff;
+        }
+    }
 
     .top {
         background: #23282d;
@@ -262,7 +284,7 @@ body {
                 li {
                     display: inline-block;
 
-                    a {
+                    a, span {
                         color: #eee;
                         font-size: 14px;
                         transition: .3s;
@@ -321,6 +343,7 @@ body {
                         }
 
                         ul {
+                            z-index: 1;
                             display: none;
                             position: absolute;
 
@@ -384,6 +407,7 @@ body {
                 right: 0;
                 width: 300px;
                 background: #32373c;
+                z-index: 1;
 
                 .left {
                     width: 110px;
@@ -433,6 +457,10 @@ body {
         box-shadow: 0 1px 1px rgba(0,0,0,.04);
         margin: 15px;
         padding: 15px;
+
+        &.full {
+            min-height: calc(100% - 70px);
+        }
 
         h1 {
             font-size: 30px;
