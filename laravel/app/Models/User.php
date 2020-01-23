@@ -25,7 +25,7 @@ class User extends Authenticatable
     ];
 
     public const PERMISSIONS = [
-        'page'      => 'Старницы',
+        'blog'      => 'Блог',
         'user'      => 'Пользователи',
         'block'     => 'Блоки',
         'site_type' => 'Типы сайтов',

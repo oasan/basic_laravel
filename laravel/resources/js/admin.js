@@ -7,6 +7,9 @@
 require('./bootstrap');
 require('jquery.cookie');
 require('select2');
+import elFinderBrowser from './admin/elfinder.js';
+
+window.elFinderBrowser = elFinderBrowser;
 
 
 $('.menu-toggle').click(function() {

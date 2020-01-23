@@ -79,8 +79,14 @@
 
 
                 <p>
-                    <a href="{{ route('admin.user.index') }}" class="btn btn-danger">Отмена</a>
-                    <input type="submit" class="btn btn-success" value="Сохранить">
+                    <a href="{{ route('admin.user.index') }}" class="btn btn-danger">
+                        <i class="fa fa-undo"></i>
+                        Отмена
+                    </a>
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-save"></i>
+                        Сохранить
+                    </button>
                 </p>
             {!! Form::close() !!}
     </div>

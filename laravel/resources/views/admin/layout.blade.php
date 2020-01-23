@@ -28,9 +28,9 @@
                         <a href="{{ route('admin.index') }}" class="nav-link {{ active('admin.index') }}"><i class="icon fas fa-home"></i> <span class="name">Главная</span></a>
                     </li>
 
-                    @if (auth()->user()->hasPermission('page'))
+                    @if (auth()->user()->hasPermission('blog'))
                         <li class="nav-item">
-                            <a href="{{ route('admin.page.index') }}" class="nav-link {{ active(['admin.page.*']) }}"><i class="icon fas fa-file-alt"></i> <span class="name">Страницы</span></a>
+                            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ active(['admin.blog.*']) }}"><i class="icon fas fa-file-alt"></i> <span class="name">Блог</span></a>
                         </li>
                     @endif
 
@@ -53,7 +53,7 @@
 
                     @if (auth()->user()->hasPermission('cache'))
                         <li class="nav-item">
-                            <a href="{{ route('admin.cache.clear') }}" class="nav-link {{ active(['admin.cache.*']) }}"><i class="icon fas fa-users"></i> <span class="name">Очистить кеш</span></a>
+                            <a href="{{ route('admin.cache.clear') }}" class="nav-link {{ active(['admin.cache.*']) }}"><i class="icon fas fa-trash"></i> <span class="name">Очистить кеш</span></a>
                         </li>
                     @endif
                 </ul>

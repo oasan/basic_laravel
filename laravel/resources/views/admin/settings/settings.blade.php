@@ -14,8 +14,8 @@
         {!! Form::open(['route' => ['admin.settings.save'], 'class' => 'form-horizontal']) !!}
 
         @foreach ($settings_structure as $settings)
-            <div class="form-group row">
-                {!! Form::label($settings['key'], $settings['label'], ['class' => 'control-label col-md-2']) !!}
+            <div class="form-group">
+                {!! Form::label($settings['key'], $settings['label'], ['class' => 'control-label']) !!}
 
                 @include('admin.settings.inputs.' . $settings['input'] ?? 'text', ['key' => $settings['key']])
             </div>
@@ -23,16 +23,16 @@
 
 
 
-
-        <div class="clearfix"></div>
-
-        <br>
-        <br>
-
-        <div class="text-right">
-            {!! link_to_route('admin.index', 'Отмена', [], ['class' => "btn btn-danger"]) !!}
-            <input type="submit" class="btn btn-success" value="Сохранить">
-        </div>
+        <p>
+            <a href="{{ route('admin.index') }}" class="btn btn-danger">
+                <i class="fa fa-undo"></i>
+                Отмена
+            </a>
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-save"></i>
+                Сохранить
+            </button>
+        </p>
         {!! Form::close() !!}
     </div>
 
