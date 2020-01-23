@@ -1,6 +1,11 @@
 /node_modules
 /vendor
-/uploads
+/uploads/*
+/uploads/filemanager/*
 /assets
 /mix-manifest.json
 /packages
+
+!uploads
+!uploads/user.png
+!uploads/filemanager
