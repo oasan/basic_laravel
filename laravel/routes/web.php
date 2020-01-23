@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::namespace('Admin')
-     ->middleware(['auth', /*'auth_admin'*/])
+     ->middleware(['auth', 'auth_admin'])
      ->prefix('admin')
      ->name('admin.')
      ->group(function () {
