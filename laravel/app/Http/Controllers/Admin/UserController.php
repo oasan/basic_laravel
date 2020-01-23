@@ -101,7 +101,11 @@ class UserController extends AdminController
 
         $user->update($data);
 
-        $user->roles()->sync($data['role_id']);
+        if (!empty($data['role_id'])) {
+            $user->roles()->sync($data['role_id']);
+        } else {
+            $user->roles()->detach();
+        }
 
         flash('Данные пользователя успешно обновлены', 'success');
 
