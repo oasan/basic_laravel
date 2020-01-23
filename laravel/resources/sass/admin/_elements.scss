@@ -1,0 +1,131 @@
+.circle {
+    border-radius: 50%;
+}
+
+.row_middle {
+    td, th {
+        vertical-align: middle;
+    }
+}
+
+.green {
+    color: $green;
+}
+.red {
+    color: #dc3545;
+}
+
+.controls {
+    .btn {
+        width: 36px;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        padding: 0;
+    }
+}
+
+.inline-block {
+    display: inline-block;
+}
+.add-item-btn {
+    margin-bottom: -10px;
+}
+
+.breadcrumb {
+    background: none;
+
+    ol.breadcrumb {
+        padding: 3px 10px 3px 0;
+    }
+
+    li {
+        line-height: 26px;
+
+        &:before {
+            display: none !important;
+        }
+
+        &:after {
+            content: '/';
+            padding: 0 7px;
+        }
+
+        &:last-child:after {
+            display: none;
+        }
+    }
+    .active {
+        font-size: 26px;
+        color: #212529;
+    }
+}
+
+.form-check {
+    padding-left: 0;
+    margin-top: 3px;
+
+    [type="checkbox"], [type="radio"] {
+        display: none;
+        + label {
+            padding-left: 20px;
+            position: relative;
+            display: block;
+
+            &:before {
+                content: '';
+                width: 16px;
+                height: 16px;
+                border: 1px solid $blue;
+                position: absolute;
+                left: 0;
+                top: 3px;
+            }
+            &:after {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: transparent;
+                transition: .3s;
+                position: absolute;
+                left: 4px;
+                top: 7px;
+            }
+        }
+
+        &:checked {
+            + label {
+                &:after {
+                    background: $blue;
+                }
+            }
+        }
+
+        &:disabled {
+            + label {
+                &:before {
+                    border-color: #ddd;
+                }
+            }
+
+            &:checked {
+                + label {
+                    &:after {
+                        background: #ddd;
+                    }
+                }
+            }
+        }
+    }
+
+    [type="radio"] + label {
+        &:before, &:after {
+            border-radius: 50%;
+        }
+    }
+}
+
+
+.datetime {
+    position: relative;
+}
