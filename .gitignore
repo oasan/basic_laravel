@@ -6,6 +6,6 @@
 /mix-manifest.json
 /packages
 
-!uploads
-!uploads/user.png
-!uploads/filemanager
+!/uploads
+!/uploads/user.png
+!/uploads/filemanager
