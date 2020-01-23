@@ -1,4 +1,4 @@
-<script src="/assets/tinymce/js/tinymce/tinymce.min.js"></script>
+<script src="/assets/tinymce/tinymce.min.js"></script>
 <script>
     var tinymce_config = {
         selector: '',

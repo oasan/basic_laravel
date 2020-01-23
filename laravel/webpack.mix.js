@@ -22,4 +22,6 @@ mix.js('resources/js/app.js', 'assets/js')
 mix.js('resources/js/admin.js', 'assets/js')
    .sass('resources/sass/admin.scss', 'assets/css')
    .copy('node_modules/@fortawesome/fontawesome-free/webfonts', '../assets/fonts/fontawesome-free')
+   .copy('node_modules/tinymce', '../assets/tinymce')
+   .copy('node_modules/tinymce-lang/', '../assets/tinymce')
    .version();
