@@ -2,7 +2,7 @@
 
 Задать настройки в .env файле
 
-Выполнить
+Выполнить:
 ```
 cd laravel
 composer install
@@ -12,4 +12,10 @@ php artisan db:seed
 php artisan elfinder:publish
 npm install
 npm run production
+```
+
+Войти используя логин и пароль:
+```
+admin@admin.admin
+password
 ```
