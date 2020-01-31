@@ -86,7 +86,6 @@ class BlogController extends AdminController
 
     public function destroy(Blog $blog)
     {
-        $blog->urlable()->delete();
         $blog->delete();
 
         flash('Запись успешно удалена', 'success');
