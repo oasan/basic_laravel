@@ -1,15 +1,20 @@
 # Установка
 
-Задать настройки в .env файле
-
 Выполнить:
 ```
 cd laravel
 composer install
-php artisan key:generate
+```
+
+Задать настройки базы данных в .env файле
+Выполнить миграции
+```
 php artisan migrate
 php artisan db:seed
-php artisan elfinder:publish
+```
+
+Установка фронтенда
+```
 npm install
 npm run production
 ```
