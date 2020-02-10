@@ -22,6 +22,16 @@ function saveUploadedImage($image, $name) {
     return $img_path . $date . $image_name;
 }
 
+function deleteUploadedImage($image) {
+    if (!$image) return;
+
+    $image = public_path($image);
+
+    if (is_file($image)) {
+        unlink($image);
+    }
+}
+
 
 function resize_image($source_file, $target_file, $w, $h, $crop=FALSE) {
 
