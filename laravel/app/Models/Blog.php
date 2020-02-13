@@ -38,15 +38,17 @@ class Blog extends Model
     }
 
     public function setImageAttribute($image) {
-
         if (isset($this->attributes['image'])) {
-            $old_image = public_path($this->attributes['image']);
-
-            if ($this->attributes['image'] && is_file($old_image)) {
-                unlink($old_image);
-            }
+            deleteUploadedImage($this->attributes['image']);
         }
 
-        $this->attributes['image'] = saveUploadedImage($image, $this->name, 'image');
+        $this->attributes['image'] = saveUploadedImage($image, $this->name);
+    }
+
+    public function delete()
+    {
+        deleteUploadedImage($this->image);
+
+        parent::delete();
     }
 }
