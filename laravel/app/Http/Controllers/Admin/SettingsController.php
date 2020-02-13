@@ -10,12 +10,8 @@ use App\Http\Controllers\Admin\CacheController;
 
 class SettingsController extends AdminController
 {
-    public function __construct()
-    {
-        $this->checkPermissions('settings');
-        View::share('section_name', 'Настройки');
-        View::share('page_name', '');
-    }
+    protected $section_name = 'Настройки';
+    protected $permission = 'settings';
 
     public function index()
     {

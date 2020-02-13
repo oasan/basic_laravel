@@ -10,11 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends AdminController
 {
-    public function __construct()
-    {
-        View::share('section_name', 'Панель управления');
-        View::share('page_name', '');
-    }
+    protected $section_name = 'Панель управления';
+
 
     public function index()
     {

@@ -13,14 +13,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends AdminController
 {
-    public function __construct()
-    {
-        $this->checkPermissions('user');
-
-        View::share('section_name', 'Пользователи');
-        View::share('page_name', '');
-    }
-
+    protected $section_name = 'Пользователи';
+    protected $permission = 'user';
 
     public function index()
     {

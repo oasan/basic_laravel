@@ -10,11 +10,8 @@ use Artisan;
 
 class CacheController extends AdminController
 {
-    public function __construct()
-    {
-        $this->checkPermissions('cache');
-        View::share('section_name', 'Кеширование');
-    }
+    protected $section_name = 'Кеширование';
+    protected $permission = 'cache';
 
     function clear() {
         CacheController::clear_cache();

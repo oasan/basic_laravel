@@ -5,19 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Http\Request;
 use App\Models\Blog;
-use App\Models\Url;
-use App\Helpers\Template;
 use Illuminate\Support\Facades\View;
 
 class BlogController extends AdminController
 {
-    public function __construct()
-    {
-        $this->checkPermissions('blog');
+    protected $section_name = 'Блог';
+    protected $permission = 'blog';
 
-        View::share('section_name', 'Блог');
-        View::share('page_name', '');
-    }
 
     public function index()
     {

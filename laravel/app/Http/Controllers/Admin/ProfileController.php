@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends AdminController
 {
-    public function __construct()
-    {
-        View::share('section_name', 'Профиль пользователя');
-        View::share('page_name', '');
-    }
+    protected $section_name = 'Профиль пользователя';
 
     public function index() {
         $user = Auth::user();
