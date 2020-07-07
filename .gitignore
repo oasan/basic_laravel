@@ -5,6 +5,7 @@
 /assets
 /mix-manifest.json
 /packages
+.idea
 
 !/uploads
 !/uploads/user.png
