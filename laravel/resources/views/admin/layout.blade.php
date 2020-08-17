@@ -28,9 +28,9 @@
                         <a href="{{ route('admin.index') }}" class="nav-link {{ active('admin.index') }}"><i class="icon fas fa-home"></i> <span class="name">Главная</span></a>
                     </li>
 
-                    @if (auth()->user()->hasPermission('blog'))
+                    @if (auth()->user()->hasPermission('post'))
                         <li class="nav-item">
-                            <a href="{{ route('admin.blog.index') }}" class="nav-link {{ active(['admin.blog.*']) }}"><i class="icon fas fa-file-alt"></i> <span class="name">Блог</span></a>
+                            <a href="{{ route('admin.post.index') }}" class="nav-link {{ active(['admin.post.*']) }}"><i class="icon fas fa-file-alt"></i> <span class="name">Блог</span></a>
                         </li>
                     @endif
 

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Slug;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBlogPost extends FormRequest
+class StorePost extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,6 @@ class StoreBlogPost extends FormRequest
      */
     public function rules()
     {
-        if ($this->blog && $this->blog->slug){
-            return [
-                'name' => 'required',
-                'slug' => 'required|unique:slugs,slug,' . $this->blog->slug->id
-            ];
-        }
-
         return [
             'name' => 'required',
             'slug' => 'required|unique:slugs'

@@ -1,4 +1,4 @@
-@if ($pages->count())
+@if ($posts->count())
     <table class="table">
         <thead>
             <tr>
@@ -13,23 +13,23 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($pages as $page)
+            @foreach ($posts as $post)
                 <tr class="row_middle">
-                    <th scope="row">{{ $page->id }}</th>
+                    <th scope="row">{{ $post->id }}</th>
                     <td>
-                        <img src="{{ url(resize($page->image, 60, 60)) }}" alt="" class="avatar" width="60">
+                        <img src="{{ url(resize($post->image, 60, 60)) }}" alt="" class="avatar" width="60">
                     </td>
-                    <td>{{ $page->name }}</td>
-                    <td class="text-center"><i class="fa fa-{{ $page->is_published ? 'check text-success' : 'times text-danger' }}"></td>
-                    <td>{!! $page->created_at ? nl2br($page->created_at->format("Y-m-d \n H:i:s")) : '' !!}</td>
-                    <td>{!! $page->updated_at ? nl2br($page->updated_at->format("Y-m-d \n H:i:s")) : '' !!}</td>
-                    <td>{!! $page->published_at ? nl2br($page->published_at->format("Y-m-d \n H:i:s")) : '' !!}</td>
+                    <td>{{ $post->name }}</td>
+                    <td class="text-center"><i class="fa fa-{{ $post->is_published ? 'check text-success' : 'times text-danger' }}"></td>
+                    <td>{!! $post->created_at ? nl2br($post->created_at->format("Y-m-d H:i:s")) : '' !!}</td>
+                    <td>{!! $post->updated_at ? nl2br($post->updated_at->format("Y-m-d H:i:s")) : '' !!}</td>
+                    <td>{!! $post->published_at ? nl2br($post->published_at->format("Y-m-d H:i:s")) : '' !!}</td>
                     <td class="controls text-right" width="200">
-                        <a href="{{ route('admin.blog.edit', $page->id) }}" class="btn btn-primary">
+                        <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-primary">
                             <i class="icon fas fa-pencil-alt"></i>
                         </a>
 
-                        {!! Form::open(['route' => ['admin.blog.destroy', $page->id], 'method' => 'DELETE', 'class' => 'inline-block']) !!}
+                        {!! Form::open(['route' => ['admin.post.destroy', $post->id], 'method' => 'DELETE', 'class' => 'inline-block']) !!}
                             <button type="submit" class="btn delete btn-danger">
                                 <span class="fas fa-times"></span>
                             </button>
@@ -40,5 +40,5 @@
         </tbody>
     </table>
 
-    {!! $pages->render() !!}
+    {!! $posts->render() !!}
 @endif

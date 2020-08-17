@@ -8,13 +8,13 @@ use App\Models\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
-class Blog extends Model
+class Post extends Model
 {
     use SluggableTrait;
     use ImageTrait;
     use PublishedTrait;
 
-    protected $table = 'blog';
+
     protected $fillable = [
         'name',
         'meta_title',

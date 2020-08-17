@@ -46,7 +46,7 @@ Route::namespace('Admin')
 
 
 
-    Route::resource('blog', 'BlogController', ['except' => ['show']]);
+    Route::resource('post', 'PostController', ['except' => ['show']]);
 
     Route::get('/settings', 'SettingsController@index')->name('settings.index');
     Route::post('/settings', 'SettingsController@save')->name('settings.save');
