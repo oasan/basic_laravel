@@ -22,8 +22,8 @@
 
 
                 <div class="form-group">
-                    <label for="alias">Псевдоним</label>
-                    {{ Form::text('alias', empty($blog) ? null : $blog->alias, ['class' => 'form-control', 'id' => 'alias']) }}
+                    <label for="slug">Псевдоним</label>
+                    {{ Form::text('slug', empty($blog) ? null : $blog->url, ['class' => 'form-control', 'id' => 'slug']) }}
                 </div>
 
 

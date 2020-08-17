@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Requests\StoreBlogPost;
 use Illuminate\Http\Request;
 use App\Models\Blog;
 use Illuminate\Support\Facades\View;
@@ -30,13 +31,8 @@ class BlogController extends AdminController
     }
 
 
-    public function store(Request $request)
+    public function store(StoreBlogPost $request)
     {
-        // Проверяем валидность данных
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
-
         $data = $request->all();
 
         if (empty($data['alias'])) {
@@ -44,6 +40,8 @@ class BlogController extends AdminController
         }
 
         $blog = Blog::create($data);
+
+        $blog->slug()->create(['slug' => $request->get('slug')]);
 
         flash()->success('Запись успешно добавлена');
 
@@ -57,13 +55,8 @@ class BlogController extends AdminController
         return view('admin.blog.form', compact('blog'));
     }
 
-    public function update(Request $request, Blog $blog)
+    public function update(StoreBlogPost $request, Blog $blog)
     {
-        // Проверяем валидность данных
-        $this->validate($request, [
-            'name' => 'required',
-        ]);
-
         $data = $request->all();
 
         if (empty($data['alias'])) {

@@ -1,38 +1,5 @@
 <?php
 
-function saveUploadedImage($image, $name) {
-	if (!$image) return;
-
-	// Папка с картинками
-	$img_path = 'uploads/';
-
-	$date = date('Y/m/');
-    $folder = public_path() . DIRECTORY_SEPARATOR . $img_path . $date;
-
-
-	if (!is_dir($folder)) {
-		mkdir($folder, 0777, 1);
-	}
-
-    $name =  substr(str_slug($name), 0, 8) . '_' . microtime(1);
-	$image_name = $name . '.' . $image->getClientOriginalExtension();
-
-    $image->move($folder, $image_name);
-
-    return $img_path . $date . $image_name;
-}
-
-function deleteUploadedImage($image) {
-    if (!$image) return;
-
-    $image = public_path($image);
-
-    if (is_file($image)) {
-        unlink($image);
-    }
-}
-
-
 function resize_image($source_file, $target_file, $w, $h, $crop=FALSE) {
 
     $imgsize = getimagesize($source_file);
@@ -133,13 +100,7 @@ function resize($image, $width, $height, $crop = true)
 
 function settings($key, $default = null)
 {
-    $settings = Cache::rememberForever($key, function() use ($key) {
-        return \App\Models\Settings::where('key', $key)->first();
-    });
-
-    if (!$settings) return $default;
-
-    return $settings->value;
+    return \App\Models\Settings::getByKey($key, $default);
 }
 
 function clearphone($number) {

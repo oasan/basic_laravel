@@ -16,7 +16,6 @@ class CreateBlogTable extends Migration
         Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('alias');
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();

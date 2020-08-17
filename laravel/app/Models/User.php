@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\ImageTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,6 +11,7 @@ use App\Models\Role;
 class User extends Authenticatable
 {
     use Notifiable;
+    use ImageTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -65,14 +67,10 @@ class User extends Authenticatable
     public function setAvatarAttribute($image) {
 
         if (isset($this->attributes['avatar'])) {
-            $old_image = public_path($this->attributes['avatar']);
-
-            if ($this->attributes['avatar'] && is_file($old_image)) {
-                unlink($old_image);
-            }
+            $this->deleteImage('avatar');
         }
 
-        $this->attributes['avatar'] = saveUploadedImage($image, $this->name, 'avatar');
+        $this->attributes['avatar'] = $this->saveUploadedImage($image, $this->name, 'avatar');
     }
 
     public function getAvaAttribute()

@@ -24,4 +24,15 @@ class Settings extends Model
             'input' => 'text'
         ],
     ];
+
+    public static function getByKey($key, $default = null)
+    {
+        $settings = Cache::rememberForever($key, function() use ($key) {
+            return \App\Models\Settings::where('key', $key)->first();
+        });
+
+        if (!$settings) return $default;
+
+        return $settings->value;
+    }
 }
