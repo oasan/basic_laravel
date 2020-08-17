@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Slug;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePost extends FormRequest
+class CategoryStore extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class UpdatePost extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required|unique:slugs,slug,' . $this->blog->slug->id
+            'slug' => 'required|unique:slugs'
         ];
     }
 

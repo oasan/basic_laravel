@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Requests\StorePost;
-use App\Http\Requests\UpdatePost;
+use App\Http\Requests\PostStore;
+use App\Http\Requests\PostUpdate;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\View;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\View;
 class PostController extends AdminController
 {
     protected $section_name = 'Записи блога';
-    protected $permission = 'post';
+    protected $permission = 'blog';
 
 
     public function index()
@@ -32,14 +32,9 @@ class PostController extends AdminController
     }
 
 
-    public function store(StorePost $request)
+    public function store(PostStore $request)
     {
         $data = $request->all();
-
-        if (empty($data['alias'])) {
-            $data['alias'] = $data['name'];
-        }
-
         $post = Post::create($data);
 
         $post->slug()->create(['slug' => $request->get('slug')]);
@@ -56,15 +51,12 @@ class PostController extends AdminController
         return view('admin.post.form', compact('post'));
     }
 
-    public function update(UpdatePost $request, Post $post)
+    public function update(PostUpdate $request, Post $post)
     {
         $data = $request->all();
-
-        if (empty($data['alias'])) {
-            $data['alias'] = $data['name'];
-        }
-
         $post->update($data);
+
+        $post->slug()->update(['slug' => $request->get('slug')]);
 
         flash()->success('Запись успешно обновлена');
 

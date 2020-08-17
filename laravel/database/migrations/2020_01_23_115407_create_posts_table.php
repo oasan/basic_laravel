@@ -24,8 +24,6 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->boolean('published')->nullable();
             $table->timestamp('published_at')->nullable();
-            $table->bigInteger('page_id')->default(0);
-
             $table->timestamps();
         });
     }

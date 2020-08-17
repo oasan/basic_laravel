@@ -20,8 +20,8 @@
                     </td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{!! $user->created_at ? nl2br($user->created_at->format("Y-m-d \n H:i:s")) : '' !!}</td>
-                    <td>{!! $user->updated_at ? nl2br($user->updated_at->format("Y-m-d \n H:i:s")) : '' !!}</td>
+                    <td>{!! $user->created_at ? nl2br($user->created_at->format("Y-m-d H:i:s")) : '' !!}</td>
+                    <td>{!! $user->updated_at ? nl2br($user->updated_at->format("Y-m-d H:i:s")) : '' !!}</td>
                     <td class="controls text-right" width="200">
                         <a href="{{ route('admin.user.edit', $user->id) }}" class="btn btn-primary">
                             <i class="icon fas fa-pencil-alt"></i>

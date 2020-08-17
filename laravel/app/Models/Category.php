@@ -6,14 +6,12 @@ use App\Models\Traits\ImageTrait;
 use App\Models\Traits\PublishedTrait;
 use App\Models\Traits\SluggableTrait;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
-class Post extends Model
+class Category extends Model
 {
     use SluggableTrait;
     use ImageTrait;
     use PublishedTrait;
-
 
     protected $fillable = [
         'name',
@@ -29,29 +27,16 @@ class Post extends Model
 
     protected $dates = ['published_at'];
 
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
+
     public function delete()
     {
         $this->deleteImage();
         $this->deleteSlug();
 
         parent::delete();
-    }
-
-    /**
-     * Категории
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class);
-    }
-
-    /**
-     * Теги
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
     }
 }

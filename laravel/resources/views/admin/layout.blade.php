@@ -28,11 +28,41 @@
                         <a href="{{ route('admin.index') }}" class="nav-link {{ active('admin.index') }}"><i class="icon fas fa-home"></i> <span class="name">Главная</span></a>
                     </li>
 
-                    @if (auth()->user()->hasPermission('post'))
+
+                    @if (auth()->user()->hasPermission('blog'))
                         <li class="nav-item">
-                            <a href="{{ route('admin.post.index') }}" class="nav-link {{ active(['admin.post.*']) }}"><i class="icon fas fa-file-alt"></i> <span class="name">Блог</span></a>
+                            <a href="#" class="nav-link menu-toggle {{ active(['admin.post.*', 'admin.category.*', 'admin.tag.*']) }}">
+                                <i class="icon fas fa-file-alt"></i>
+                                <span class="name">Блог</span>
+                            </a>
+
+                            <ul class="custom-dropdown-menu {{ active(['admin.post.*', 'admin.category.*', 'admin.tag.*']) }}">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.post.index') }}" class="nav-link {{ active(['admin.post.*']) }}">
+                                        <i class="icon fas fa-file-alt"></i>
+                                        <span class="name">Записи</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.category.index') }}" class="nav-link {{ active(['admin.category.*']) }}">
+                                        <i class="icon fas fa-list"></i>
+                                        <span class="name">Категории</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.tag.index') }}" class="nav-link {{ active(['admin.tag.*']) }}">
+                                        <i class="icon fas fa-tag"></i>
+                                        <span class="name">Теги</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     @endif
+
+
+
 
                     @if (auth()->user()->hasPermission('user'))
                         <li class="nav-item">

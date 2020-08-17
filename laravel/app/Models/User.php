@@ -27,7 +27,7 @@ class User extends Authenticatable
     ];
 
     public const PERMISSIONS = [
-        'post'      => 'Записи блога',
+        'blog'      => 'Блог',
         'user'      => 'Пользователи',
         'cache'     => 'Очистить кеш',
         'settings'  => 'Настройки',
