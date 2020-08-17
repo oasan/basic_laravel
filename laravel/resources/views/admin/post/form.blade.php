@@ -26,6 +26,16 @@
                 {{ Form::text('slug', empty($post) ? null : $post->url, ['class' => 'form-control', 'id' => 'slug']) }}
             </div>
 
+            <div class="form-group">
+                <label for="categories">Категории</label>
+                {{ Form::select('categories[]', $categories, empty($post) ? null : $post->categories()->pluck('name'), ['class' => 'form-control multiple_select_dynamic', 'id' => 'categories', 'multiple' => true]) }}
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Теги</label>
+                {{ Form::select('tags[]', $tags, empty($post) ? null : $post->tags()->pluck('name'), ['class' => 'form-control multiple_select_dynamic', 'id' => 'tags', 'multiple' => true]) }}
+            </div>
+
 
             <div class="form-group">
                 <label for="meta_title">Title</label>

@@ -54,4 +54,48 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class);
     }
+
+    /**
+     * Обновляет категории
+     * @param $tags
+     * @return $this
+     */
+    public function updateCategories($categories) {
+        $this->categories()->detach();
+
+        if (!$categories) {
+            return $this;
+        }
+
+        foreach ($categories as $category) {
+            $category = Category::firstOrNew(['name' => $category]);
+            $category->save();
+
+            $this->categories()->attach($category);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Обновляет теги
+     * @param $tags
+     * @return $this
+     */
+    public function updateTags($tags) {
+        $this->tags()->detach();
+
+        if (!$tags) {
+            return $this;
+        }
+
+        foreach ($tags as $tag) {
+            $tag = Tag::firstOrNew(['name' => $tag]);
+            $tag->save();
+
+            $this->tags()->attach($tag);
+        }
+
+        return $this;
+    }
 }

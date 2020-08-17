@@ -43,3 +43,12 @@ $('.multiple_select').select2({
     allowClear: true,
     closeOnSelect: false
 });
+
+$('.multiple_select_dynamic').select2({
+    placeholder: 'Выберите элементы',
+    theme: 'bootstrap4',
+    allowClear: true,
+    closeOnSelect: false,
+    tags: true,
+    tokenSeparators: [',']
+});
